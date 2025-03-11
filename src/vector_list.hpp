@@ -66,7 +66,7 @@ void VectorList<T>::pop_back() {
     throw std::out_of_range("A lista está vazia.");
   }
 
-  data[size()] = 0;
+  data[size()] = data[size() - 1];
   _size--;
 }
 
