@@ -26,7 +26,7 @@ Você deverá implementar as funções membro indicadas abaixo. O código dispon
    - **Para a classe `LinkedList`**:
      ```cpp
      template <class T>
-     void LinkedList<T>::pop_front(const T& value);
+     void LinkedList<T>::pop_front();
      ```
      ```cpp
      template <class T>
