@@ -47,7 +47,21 @@ void LinkedList<T>::push_front(const T& value) {
 
 // O( n ) linear
 template <class T>
-void LinkedList<T>::insert(size_t index, const T& value) {}
+void LinkedList<T>::insert(size_t index, const T& value) {
+  if (index >= size()) {
+    throw std::out_of_range("Índice inválido.");
+  }
+
+  for (int i = 0; i < size(); i++) {
+    if (index == i) {
+      auto new_node = new Node(value);
+
+      new_node->next = head;
+      head = new_node;
+      _size++;
+    }
+  }
+}
 
 template <class T>
 void LinkedList<T>::print() const {
@@ -61,7 +75,24 @@ void LinkedList<T>::print() const {
 
 // O( 1 ) Constante
 template <class T>
-void LinkedList<T>::pop_front() {}
+void LinkedList<T>::pop_front() {
+  if (empty()) {
+    throw std::out_of_range("A lista está vazia.");
+  } 
+  
+  else if (size() == 1) {
+    auto atual = head;
+
+    while (atual != nullptr) {
+      atual = atual->next;
+
+      delete head;
+
+      _size--;
+    }
+  }
+  _size--;
+}
 
 // O( n ) Linear
 template <class T>
